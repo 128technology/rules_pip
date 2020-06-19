@@ -143,7 +143,7 @@ def _add_pkgutil_style_namespace_pkg_init(dir_path):
         ns_pkg_init_f.write(
             textwrap.dedent(
                 """\
-                # __path__ manipulation added by rules_python_external to support namespace pkgs.
+                # __path__ manipulation added by rules_pip to support namespace pkgs.
                 __path__ = __import__('pkgutil').extend_path(__path__, __name__)
                 """
             )
