@@ -1,3 +1,23 @@
+# Copyright 2020 128 Technology, Inc.
+# Copyright 2016 Dillon Giacoppo github.com/dillon-giacoppo
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#     http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# The contents of this file were mostly copied from:
+# https://github.com/dillon-giacoppo/rules_python_external
+# specifically the files namespace_pkgs.py and wheel.py.
+# 128 Technology has made changes to these files and combined them into this file.
+
 """Utility functions to discover python package types"""
 import glob
 import os
