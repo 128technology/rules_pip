@@ -61,3 +61,12 @@ pip_repository(
         "//thirdparty/pip/3:requirements-osx.txt": "osx",
     },
 )
+
+pip_repository(
+    name = "pip3_internal",
+    python_interpreter = PYTHON3,
+    requirements_per_platform = {
+        "//thirdparty/pip/internal/3:requirements-linux.txt": "linux",
+        "//thirdparty/pip/internal/3:requirements-osx.txt": "osx",
+    },
+)

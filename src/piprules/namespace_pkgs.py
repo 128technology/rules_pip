@@ -18,6 +18,10 @@
 # specifically the files namespace_pkgs.py and wheel.py.
 # 128 Technology has made changes to these files and combined them into this file.
 
+# Summary of changes:
+# Removed type hints, brought _get_dist_info into this file, changed private functions
+# to have "_" prefix, and minor formatting
+
 """Utility functions to discover python package types"""
 import glob
 import os

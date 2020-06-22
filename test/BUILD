@@ -59,7 +59,7 @@ pytest_test(
 pytest_test(
     name = "namespace_pkgs_test",
     src = "namespace_pkgs_test.py",
-    deps = ["@pip3//azure_mgmt_compute", "@pip3//azure_mgmt_resource"],
+    deps = ["@pip3_internal//azure_mgmt_compute", "@pip3_internal//azure_mgmt_resource"],
     python_version = 3,
 )
 
