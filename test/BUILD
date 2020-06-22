@@ -4,36 +4,36 @@ load("//tools/pytest:rules.bzl", "pytest_test")
 pytest_test(
     name = "dependency_deduplication_test_2",
     src = "dependency_deduplication_test.py",
-    deps = ["@pip2//isort"],
     python_version = 2,
+    deps = ["@pip2//isort"],
 )
 
 pytest_test(
     name = "dependency_deduplication_test_3",
     src = "dependency_deduplication_test.py",
-    deps = ["@pip3//isort"],
     python_version = 3,
+    deps = ["@pip3//isort"],
 )
 
 pytest_test(
     name = "mock_test_2",
     src = "mock_test.py",
-    deps = ["@pip2//pytest_mock"],
     python_version = 2,
+    deps = ["@pip2//pytest_mock"],
 )
 
 pytest_test(
     name = "mock_test_3",
     src = "mock_test.py",
-    deps = ["@pip3//pytest_mock"],
     python_version = 3,
+    deps = ["@pip3//pytest_mock"],
 )
 
 pytest_test(
     name = "pathlib_test_2",
     src = "pathlib_test.py",
-    deps = ["@pip2//pathlib2"],
     python_version = 2,
+    deps = ["@pip2//pathlib2"],
 )
 
 pytest_test(
@@ -45,31 +45,33 @@ pytest_test(
 pytest_test(
     name = "pyyaml_test_2",
     src = "pyyaml_test.py",
-    deps = ["@pip2//pyyaml"],
     python_version = 2,
+    deps = ["@pip2//pyyaml"],
 )
 
 pytest_test(
     name = "pyyaml_test_3",
     src = "pyyaml_test.py",
-    deps = ["@pip3//pyyaml"],
     python_version = 3,
+    deps = ["@pip3//pyyaml"],
 )
 
 pytest_test(
     name = "namespace_pkgs_test",
     src = "namespace_pkgs_test.py",
-    deps = ["@pip3_internal//azure_mgmt_compute", "@pip3_internal//azure_mgmt_resource"],
     python_version = 3,
+    deps = [
+        "@pip3_internal//azure_mgmt_compute",
+        "@pip3_internal//azure_mgmt_resource",
+    ],
 )
-
 
 genrule(
     name = "pyang2_script",
     srcs = ["@pip2//pyang/scripts:pyang"],
     outs = ["pyang2.py"],
-    tools = ["//src/bin:replace_shebang"],
     cmd = "$(location //src/bin:replace_shebang) $< $@ %s" % PYTHON2,
+    tools = ["//src/bin:replace_shebang"],
 )
 
 py_binary(
@@ -82,16 +84,16 @@ genrule(
     name = "test-yin-2",
     srcs = ["@pip2//pyang/data/share/yang/modules/ietf:ietf-yang-metadata.yang"],
     outs = ["ietf-yang-metadata-2.yin"],
-    tools = [":pyang2"],
     cmd = "$(location :pyang2) -f yin -o $@ $<",
+    tools = [":pyang2"],
 )
 
 genrule(
     name = "pyang3_script",
     srcs = ["@pip3//pyang/scripts:pyang"],
     outs = ["pyang3.py"],
-    tools = ["//src/bin:replace_shebang"],
     cmd = "$(location //src/bin:replace_shebang) $< $@ %s" % PYTHON3,
+    tools = ["//src/bin:replace_shebang"],
 )
 
 py_binary(
@@ -104,8 +106,8 @@ genrule(
     name = "test-yin-3",
     srcs = ["@pip3//pyang/data/share/yang/modules/ietf:ietf-yang-metadata.yang"],
     outs = ["ietf-yang-metadata-3.yin"],
-    tools = [":pyang3"],
     cmd = "$(location :pyang3) -f yin -o $@ $<",
+    tools = [":pyang3"],
 )
 
 pytest_test(
